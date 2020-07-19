@@ -14,6 +14,7 @@ end
 def show
 	@book = Book.new
 	@book2 = Book.find(params[:id])
+  @user = @book2.user
 end
 
 def index
@@ -23,6 +24,8 @@ end
 
 def edit
   @book2 = Book.find(params[:id])
+  end
+
 end
 
 def update
