@@ -9,7 +9,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <header>
+  <header class="header">
     <% if user_signed_in? %>
        <li class="">
         <%= link_to 'Home', user_path(current_user.id) %>
