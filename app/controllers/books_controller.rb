@@ -24,9 +24,8 @@ end
 
 def edit
   @book2 = Book.find(params[:id])
-  end
-
 end
+
 
 def update
   @book2 = Book.find(params[:id])
