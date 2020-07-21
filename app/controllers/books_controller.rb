@@ -24,6 +24,10 @@ end
 
 def edit
   @book2 = Book.find(params[:id])
+  @user = @book2.user
+  if @user != current_user
+      redirect_to books_path
+    end
 end
 
 
