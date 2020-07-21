@@ -9,11 +9,15 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <header class="header">
-    <h2>Bookers</h2>
-    <ul>
+  <header class = "navbar navbar-fixed-top navbar-inverse">
+    <div class ="container">
+      <nav class="nav navbar-nav navbar-left">
+        <span>Bookers</span>
+      </nav>
+      <nav>
+    <ul class="nav navbar-nav navbar-right" >
     <% if user_signed_in? %>
-       <li class="">
+       <li class="glyphicon glyphicon-home">
         <%= link_to 'Home', user_path(current_user.id) %>
       </li>
        <li class="">
@@ -41,6 +45,8 @@
       </li>
     <% end %>
   </ul>
+</nav>
+</div>
   </header>
 
   <body>
