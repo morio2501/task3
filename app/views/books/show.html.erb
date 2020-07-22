@@ -1,3 +1,7 @@
+
+<p id="notice">
+ <%=  notice %>
+</p>
 <div class="container">
 	<div class="row">
 		<div class="col-xs-3">
@@ -11,7 +15,7 @@
      			<th><%= current_user.name %></th>
      		</tr>
      		<tr>
-     			<th>intorodaction</th>
+     			<th>introdaction</th>
      			<th><%= current_user.introduction %></th>
      		</tr>
      	</tbody>
@@ -27,7 +31,7 @@
 			<%= f.text_field :title,class:"col-xs-12 book_title" %>
 		</div>
 		<div class="field.row">
-			<h4>body</h4>
+			<h4>Opinion</h4>
 			<%= f.text_area :body,class:"col-xs-12 book_body" %>
 		</div>
 		<div class="actons.row">
