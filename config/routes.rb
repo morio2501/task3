@@ -5,5 +5,6 @@ root :to => 'homes#top'
 get 'home/about'=> 'homes#about', as: 'home'
 resources :users, only: [:edit, :update, :index, :show]
 resources :books, only: [:edit, :update, :index, :show, :destroy, :create]
+resource
 end
 
