@@ -1,63 +1,42 @@
+<% if flash[:notice] %>
+<div class="flash">
+	<%= flash[:notice] %>
+</div>
+<% end %>
 
 <div class="container">
 <div class="row">
 	<div class="col-xs-3">
 		<h2>User info</h2>
-		<%= attachment_image_tag current_user, :profile_image, :fill, 100,100, format: 'png',fallback: "no-image.png",size: "100x100" %>
-		
-	<table class="table">
-		<tbody>
-			<tr></tr>
-			<tr>
-				<th>name</th>
-     			<th> <%= current_user.name %></th>
- 			</tr>
- 			<tr>
-     			<th>introdaction</th>
-     			<th><%= current_user.introduction %></th>
-     		</tr>
-   		</tbody>
-	</table>
-	<div class="row">
-    	 <%= link_to "", edit_user_path(current_user.id),class:"col-xs-12 btn btn-default glyphicon glyphicon-wrench edit_user_21304"%>
- 	</div>
-		<h1> New book</h1>
-			<%= form_for (@book) do|f| %>
-	<div class="field.row">
-			<h4>Title</h4>
-			<%= f.text_field :title,class:"col-xs-12 book_title" %>
-	</div>
-	<div class="field.row">
-			<h4>Opinion</h4>
-			<%= f.text_area :body,class:"col-xs-12 book_body" %>
-	</div>
-	<div class="actons.row">
-		<%= f.submit 'Create Book', class:"btn btn-primary col-xs-12" %>
-	</div>
-	<% end %>
+		<%= render 'users/profile', user: current_user %>
+
+		<h2>New book</h2>
+		<%= render 'books/newform', book: @book %>
 	</div>
 
-		<div class="col-xs-9">
-			<h1>Users</h1>
-	<table class="table" >
-		<thead>
-			<tr>
-				<th>image</th>
-				<th>name</th>
-				<th colspan="3">
-			</tr>
-		</thead>
-		<tbody>
-			<% @users.each do |user|%>
-		<tr>
-			<td><%= attachment_image_tag user, :profile_image, format: 'png',fallback: "no-image.png",size: "50x50" %></td>
+	<div class="col-xs-9">
+		<h2>Users</h2>
+		<!--users一覧 -->
+		<table class="table">
+			<thead>
+				<tr>
+					<th>image</th>
+					<th>name</th>
+					<th colspan="3"></th>
+				</tr>
+			</thead>
 
-			<td><%= user.name %></td>
-			<td><%= link_to 'Show', user_path(user.id)  %></td>
-			</tr>
-			<% end %>
-		</tbody>
+			<tbody>
+				<% @users.each do |user| %>
+				<tr>
+					<td><%= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback: "no-image-mini.jpg") %></td>
+					<td><%= user.name %></td>
+					<td><%= link_to "Show", user_path(user), class: "user_#{user.id}" %></td>
+				</tr>
+				<% end %>
+			</tbody>
 		</table>
+		<!--users一覧 -->
 	</div>
-	</div>
-	</div>
+</div>
+</div>
